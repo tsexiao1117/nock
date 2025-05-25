@@ -1,3 +1,27 @@
+/+  *  /common/jet-ffi
+/+  *  /common/zeke
+|%
+:: =======================
+:: 批量与Jet优化接口示例
+:: =======================
+
+++  batch-one-main
+  |=  [args]
+  ^-  (list _one_type)
+  =+  res
+    (jet-batch-one-main args)
+  ?~  res
+    (fallback-batch-one-main args)
+    res
+::
+
+:: =======================
+:: 其余主流程和辅助函数（建议主流程前置，辅助后置，注释统一）
+:: =======================
+
+/* 原有主流程和辅助函数请在下方补充与整理，保持风格一致 */
+
+--
 ~%  %zeke  ..ut  ~
 ::    math-base: base field definitions and arithmetic
 |%
