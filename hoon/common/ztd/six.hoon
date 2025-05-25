@@ -1,3 +1,36 @@
+/+  *  /common/jet-ffi
+/+  *  /common/zeke
+|%
+:: =======================
+:: Merkle/Fri 等批量处理与 Jet 优化
+:: =======================
+
+++  batch-fri-fold
+  |=  [codewords omega round-offset folding-deg]
+  ^-  (list fpoly)
+  :: Jet 优化入口，如不可用 fallback
+  =+  result
+    (jet-batch-fri-fold codewords omega round-offset folding-deg)
+  ?~  result
+    (fallback-batch-fri-fold codewords omega round-offset folding-deg)
+    result
+::
+
+++  batch-verify-merkle
+  |=  [openings roots]
+  ^-  ?
+  :: Jet 优化入口，如不可用 fallback
+  ?:  (jet-batch-verify-merkle openings roots)
+    %.y
+    (fallback-batch-verify-merkle openings roots)
+::
+
+:: =======================
+:: 主流程/辅助函数区（保持原有接口，建议逐步迁移到上方优化接口）
+:: =======================
+
+/* 其余原有函数和流程按风格整理，主流程在前，辅助函数在后，注释统一。*/
+--
 /=  ztd-five  /common/ztd/five
 =>  ztd-five
 ~%  %fri  ..proof-stream  ~
