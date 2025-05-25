@@ -1,3 +1,22 @@
+/+  *  /common/jet-ffi
+/+  *  /common/zeke
+|%
+:: =======================
+:: 约束批量处理与 Jet 优化
+:: =======================
+
+++  batch-eval-constraints
+  |=  [terms values]
+  ^-  (list belt)
+  =+  res
+    (jet-batch-eval-constraints terms values)
+  ?~  res
+    (fallback-batch-eval-constraints terms values)
+    res
+::
+
+/* 保持原有接口和函数，主流程在前，辅助函数在后，注释风格统一 */
+--
 /=  ztd-six  /common/ztd/six
 =>  ztd-six
 ~%  %table-lib  ..fri-door  ~
