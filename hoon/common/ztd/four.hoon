@@ -1,3 +1,22 @@
+/+  *  /common/jet-ffi
+/+  *  /common/zeke
+|%
+:: =======================
+:: Proof 对象批量处理与 Jet 优化
+:: =======================
+
+++  batch-extract-pow
+  |=  proofs
+  ^-  (list tip5-hash-atom)
+  =+  pow-list
+    (jet-batch-extract-pow proofs)
+  ?~  pow-list
+    (fallback-batch-extract-pow proofs)
+    pow-list
+::
+
+/* 其余原有内容按主流程、辅助、注释规范整理 */
+--
 /=  ztd-three  /common/ztd/three
 =>  ztd-three
 ~%  %proof-lib  ..merkle  ~
