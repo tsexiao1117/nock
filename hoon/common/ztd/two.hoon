@@ -1,3 +1,27 @@
+/+  *  /common/jet-ffi
+/+  *  /common/zeke
+|%
+:: =======================
+:: 批量与Jet优化接口示例
+:: =======================
+
+++  batch-two-main
+  |=  [args]
+  ^-  (list _two_type)
+  =+  res
+    (jet-batch-two-main args)
+  ?~  res
+    (fallback-batch-two-main args)
+    res
+::
+
+:: =======================
+:: 其余主流程和辅助函数（建议主流程前置，辅助后置，注释统一）
+:: =======================
+
+/* 原有主流程和辅助函数请在下方补充与整理，保持风格一致 */
+
+--
 /=  ztd-one  /common/ztd/one
 =>  ztd-one
 ~%  %ext-field  ..belt  ~
