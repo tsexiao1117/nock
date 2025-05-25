@@ -1,3 +1,27 @@
+/+  *  /common/jet-ffi
+/+  *  /common/zeke
+|%
+:: =======================
+:: 批量与Jet优化接口示例
+:: =======================
+
+++  batch-five-main
+  |=  [args]
+  ^-  (list _five_type)
+  =+  res
+    (jet-batch-five-main args)
+  ?~  res
+    (fallback-batch-five-main args)
+    res
+::
+
+:: =======================
+:: 其余主流程和辅助函数（建议主流程前置，辅助后置，注释统一）
+:: =======================
+
+/* 原有主流程和辅助函数请在下方补充与整理，保持风格一致 */
+
+--
 /=  ztd-four  /common/ztd/four
 =>  ztd-four
 ~%  %utils  ..proof-path  ~
